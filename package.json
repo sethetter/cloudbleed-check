@@ -1,0 +1,19 @@
+{
+  "name": "cloudbleed-check",
+  "version": "0.0.1",
+  "description": "Check a lastpass export CSV against a list of affected domains by cloudbleed",
+  "main": "cloudbleed-check",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sethetter/cloudbleed-check.git"
+  },
+  "author": "Seth Etter <sethetter@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sethetter/cloudbleed-check/issues"
+  },
+  "homepage": "https://github.com/sethetter/cloudbleed-check#readme"
+}

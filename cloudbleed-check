@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+const fs = require('fs')
+const csv = require('csv')
+
+const affectedSitesPath = './sites-using-cloudbleed/sorted_unique_cf.txt'
+
+if (!fs.existsSync(affectedSitesPath)) throw new Error('Run `git submodule init` first!')
+if (!process.argv[2]) throw new Error('Must provide LastPass export csv filename')
+
+let lastpassCsv = fs.readFileSync(process.argv[2], 'utf-8')
+let affectedSites = fs.readFileSync(, 'utf-8').split('\n')
+
+let matches = []
+
+csv.parse(lastpassCsv, processCsv)
+
+function processCsv(err, csvData) {
+  if (err) throw new Error(err)
+
+  csvData.forEach((row) => {
+    let url = row[0]
+    if (urlMatch(url)) matches.push(url)
+  })
+
+  // TODO: do something better with this result 
+  console.log(matches)
+}
+
+function urlMatch(url) {
+  let domain = extractDomain(url)
+  return affectedSites.indexOf(domain) !== -1
+}
+
+function extractDomain(url) {
+  let domain = url.indexOf('://') > -1 ? url.split('/')[2] : url.split('/')[0]
+  return domain.split(':')[0].replace(/^[A-Za-z0-9]*\./, '')
+}
