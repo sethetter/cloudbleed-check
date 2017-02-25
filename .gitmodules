@@ -1,3 +1,0 @@
-[submodule "sites-using-cloudflare"]
-	path = sites-using-cloudflare
-	url = git@github.com:pirate/sites-using-cloudflare.git

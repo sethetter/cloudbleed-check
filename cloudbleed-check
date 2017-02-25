@@ -3,13 +3,13 @@
 const fs = require('fs')
 const csv = require('csv')
 
-const affectedSitesPath = './sites-using-cloudbleed/sorted_unique_cf.txt'
+const affectedSitesPath = './affected-sites.txt'
 
-if (!fs.existsSync(affectedSitesPath)) throw new Error('Run `git submodule init` first!')
+if (!fs.existsSync(affectedSitesPath)) throw new Error('Run `npm run setup` first!')
 if (!process.argv[2]) throw new Error('Must provide LastPass export csv filename')
 
 let lastpassCsv = fs.readFileSync(process.argv[2], 'utf-8')
-let affectedSites = fs.readFileSync(, 'utf-8').split('\n')
+let affectedSites = fs.readFileSync(affectedSitesPath, 'utf-8').split('\n')
 
 let matches = []
 

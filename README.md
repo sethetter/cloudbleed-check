@@ -1,7 +1,6 @@
 # cloudbleed-check
 
 ```
-$ git submodule init
-$ npm i
+$ npm i && npm run setup
 $ ./cloudbleed-check /path/to/lastpass/export.csv
 ```

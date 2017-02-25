@@ -4,7 +4,7 @@
   "description": "Check a lastpass export CSV against a list of affected domains by cloudbleed",
   "main": "cloudbleed-check",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup": "curl https://raw.githubusercontent.com/pirate/sites-using-cloudflare/master/sorted_unique_cf.txt > affected-sites.txt"
   },
   "repository": {
     "type": "git",
