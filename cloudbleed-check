@@ -24,7 +24,9 @@ function processCsv(err, csvData) {
   })
 
   // TODO: do something better with this result 
-  console.log(matches)
+  matches.forEach(function (m) {
+    console.log(m);
+  });
 }
 
 function urlMatch(url) {
